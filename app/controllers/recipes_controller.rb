@@ -8,9 +8,11 @@ before_action :find_recipe, only: [:show, :edit, :update, :destroy]
   end
 
   def new
+    @recipe = Recipe.new
   end
 
   def create
+    @recipe = Recipe.new(recipe_params)
   end
 
   private
