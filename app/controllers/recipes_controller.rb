@@ -13,6 +13,12 @@ before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
   def create
     @recipe = Recipe.new(recipe_params)
+
+    if @recipe.save
+      redirect_to @recipe, notice: "Sucessfully created new recipe"
+    else
+      render 'new'
+    end
   end
 
   private
