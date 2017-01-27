@@ -9,11 +9,11 @@ before_action :find_recipe, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
       redirect_to @recipe, notice: "Sucessfully created new recipe"
