@@ -6,6 +6,9 @@
 			#recipe_info
 				%h1= @recipe.title
 				%p.description= @recipe.description
+				%p
+					Submitted by
+					= @recipe.user.email
 
 	.row
 		.col-md-6
